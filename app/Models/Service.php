@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Service extends Model
+{
+    use HasFactory;
+
+    protected $fillable = ['name', 'description', 'price'];
+    public function detail()
+    {
+        return $this->hasMany(ServiceTransactionDetail::class);
+    }
+
+    #appands
+    protected $appends = ['type'];
+    public function getTypeAttribute()
+    {
+        return 'Service';
+    }
+
+
+
+
+
+
+}
+
